@@ -10,7 +10,7 @@
    Bonus : Share, Favorites (LocalStorage), 5-day forecast, AI chatbot
    ===================================================================== */
 
-/* ---------- Configuration: put your own keys here ---------- */
+/* ---------- Configuration---------- */
 const CONFIG = {
   OPENWEATHER_API_KEY: '6cec3847286a28cd83c771fb59e0c992',
   OPENAI_API_KEY: (window.LOCAL_SECRETS && window.LOCAL_SECRETS.OPENAI_API_KEY) || 'YOUR_OPENAI_API_KEY',
