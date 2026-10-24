@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WeatherMap – Asynchronous SPA</title>
+
+  <!-- Google Font (Roboto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Leaflet.js + OpenStreetMap (allowed by the project description) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="page-header">
+    <h1 class="page-title">WeatherMap</h1>
+    <p class="page-subtitle">Asynchronous client-side weather application (SPA)</p>
+  </header>
+
+  <main class="container">
+    <!-- Location form -->
+    <form id="weather-form" class="weather-form" autocomplete="off">
+      <label for="location-input" class="form-label">Please enter location</label>
+      <div class="form-row">
+        <input id="location-input" class="location-input" type="text"
+               placeholder="Search for a location (e.g. Port Sudan)" required>
+        <button id="get-weather-btn" class="btn btn-primary" type="submit">Get Weather</button>
+        <button id="fav-btn" class="btn btn-secondary" type="button" disabled>☆ Save city</button>
+      </div>
+    </form>
+
+    <!-- Loading spinner + error / info cards -->
+    <div id="loading" class="loading" hidden>
+      <div class="spinner" role="status" aria-label="Loading"></div>
+      <span>Fetching data…</span>
+    </div>
+    <div id="alerts" class="alerts" aria-live="assertive"></div>
+
+    <!-- Favorites (LocalStorage) -->
+    <section class="favorites" aria-labelledby="fav-title">
+      <h2 id="fav-title" class="section-title">Favorite cities</h2>
+      <ul id="favorites-list" class="favorites-list"></ul>
+      <p id="favorites-empty" class="muted">No favorite cities yet. Search a city and press “Save city”.</p>
+    </section>
+
+    <!-- Map (exactly 70vh) -->
+    <div id="map" class="map" role="application" aria-label="Weather map"></div>
+
+    <!-- 5-day forecast -->
+    <section id="forecast-section" class="forecast" aria-labelledby="forecast-title" hidden>
+      <h2 id="forecast-title" class="section-title">5-Day Forecast</h2>
+      <div id="forecast-grid" class="forecast-grid"></div>
+    </section>
+
+    <!-- AI chatbot (OpenAI) -->
+    <section class="chat" aria-labelledby="chat-title">
+      <h2 id="chat-title" class="section-title">Weather Assistant (AI)</h2>
+      <div id="chat-log" class="chat-log" aria-live="polite"></div>
+      <form id="chat-form" class="chat-form" autocomplete="off">
+        <input id="chat-input" class="location-input" type="text"
+               placeholder="Ask a weather question…" required>
+        <button id="chat-send" class="btn btn-primary" type="submit">Ask</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
