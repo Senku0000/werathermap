@@ -13,7 +13,7 @@
 /* ---------- Configuration---------- */
 const CONFIG = {
   OPENWEATHER_API_KEY: '6cec3847286a28cd83c771fb59e0c992',
-  OPENAI_API_KEY: (window.LOCAL_SECRETS && window.LOCAL_SECRETS.OPENAI_API_KEY) || 'YOUR_OPENAI_API_KEY',
+  OPENAI_API_KEY: (window.LOCAL_SECRETS && window.LOCAL_SECRETS.OPENAI_API_KEY) || 'NOT SECURE!!!!:))',
   OPENAI_MODEL: 'gpt-4o-mini',
   DEFAULT_VIEW: { lat: 15.5007, lng: 32.5599, zoom: 6 }, // Khartoum, Sudan
   CITY_ZOOM: 10,
